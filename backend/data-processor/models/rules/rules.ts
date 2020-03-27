@@ -11,8 +11,8 @@ export const RULES: Rule[] = [
       confirmed: { header: 'Confirmed', type: TYPES.NUMBER },
       deaths: { header: 'Deaths', type: TYPES.NUMBER },
       recovered: { header: 'Recovered', type: TYPES.NUMBER },
-      latitude: { header: '', type: TYPES.NUMBER },
-      longitude: { header: '', type: TYPES.NUMBER },
+      latitude: { header: '', type: TYPES.GEO },
+      longitude: { header: '', type: TYPES.GEO },
     }
   },
   {
@@ -24,8 +24,8 @@ export const RULES: Rule[] = [
       confirmed: { header: 'Confirmed', type: TYPES.NUMBER },
       deaths: { header: 'Deaths', type: TYPES.NUMBER },
       recovered: { header: 'Recovered', type: TYPES.NUMBER },
-      latitude: { header: 'Latitude', type: TYPES.NUMBER },
-      longitude: { header: 'Longitude', type: TYPES.NUMBER },
+      latitude: { header: 'Latitude', type: TYPES.GEO },
+      longitude: { header: 'Longitude', type: TYPES.GEO },
     }
   },
   {
@@ -39,8 +39,8 @@ export const RULES: Rule[] = [
       deaths: { header: 'Deaths', type: TYPES.NUMBER },
       recovered: { header: 'Recovered', type: TYPES.NUMBER },
       latitude: { header: 'Lat', type: TYPES.NUMBER },
-      longitude: { header: 'Long_', type: TYPES.NUMBER },
-      combinedKey: { header: 'Combined_Key', type: TYPES.STRING },
+      longitude: { header: 'Long_', type: TYPES.GEO },
+      combinedKey: { header: 'Combined_Key', type: TYPES.GEO },
     }
   },
 ];

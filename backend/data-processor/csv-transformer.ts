@@ -1,7 +1,7 @@
 import { CsvContent } from './models/csv/csv-content.interface';
 import { RULES } from './models/rules/rules';
 import { Rule } from './models/rules/rules.interface';
-import { CovidDocument } from './models/covid-document.interface';
+import { CovidDocument } from './models/covid/covid-document.interface';
 import { TYPES } from './models/types';
 import { Utils } from './utils';
 import { ReplaceRule } from './models/rules/replace-rule.interface';
@@ -29,7 +29,7 @@ export class CsvTransformer {
         });
 
         // Geocode check.
-        covidDocument = await this.geocodeCheck(covidDocument);
+        // covidDocument = await this.geocodeCheck(covidDocument);
 
         covidDocuments.push(covidDocument);
       }
@@ -53,6 +53,7 @@ export class CsvTransformer {
       };
 
       try {
+
         const payload = await Utils.geocode(geocode);
 
         if (payload && payload.length === 1) {
@@ -106,6 +107,11 @@ export class CsvTransformer {
       case TYPES.NUMBER: {
         const num = Number(value);
         return !isNaN(num) ? num : undefined;
+      }
+
+      case TYPES.GEO: {
+        const num = Number(value);
+        return !isNaN(num) ? num : 0;
       }
 
       case TYPES.DATETIME: {

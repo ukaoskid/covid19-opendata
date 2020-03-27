@@ -5,7 +5,7 @@ import { CsvFile } from './models/csv/csv-file.interface';
 import { Utils } from './utils';
 import { CsvContent } from './models/csv/csv-content.interface';
 
-export class Converter {
+export class CsvConverter {
 
   private CSV_FOLDER = '../../csse_covid_19_data/csse_covid_19_daily_reports';
 
