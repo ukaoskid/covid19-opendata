@@ -10,6 +10,15 @@ console.log(`Process started at ${new Date().toString()}`);
 
 converter.getFiles().then(async (files) => {
 
+  const dbPreparation: any = await database.prepareDb();
+  if (!dbPreparation.ok) {
+
+    console.log(dbPreparation);
+    process.exit(1);
+  }
+
+  console.log(`DB preparation SUCCESS at ${new Date().toString()}`);
+
   for (const file of files) {
 
     console.log(`Processing ${file.filename}`);
