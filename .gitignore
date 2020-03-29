@@ -1,4 +1,6 @@
 .DS_Store
 .idea
-backend/test.*
-backend/node_modules
+importer/test*
+importer/node_modules
+api-be/test*
+api-be/node_modules

@@ -4,10 +4,10 @@ import { DbDocument } from './models/database/db-document.interface';
 export class Database {
 
   private DATABASE = {
-    hostname: '134.122.85.104',
-    port: 31664,
-    db: 'covid19-opendata',
-    auth: 'Basic YWRtaW46RFdLNXZ1Rkd4MFQw' // env.
+    hostname: process.env.DB_HOSTNAME,
+    port: process.env.DB_PORT,
+    db: process.env.DB_NAME,
+    auth: process.env.DB_AUTH,
   };
   private BULK_DOCS = `${this.DATABASE.db}/_bulk_docs`;
 
