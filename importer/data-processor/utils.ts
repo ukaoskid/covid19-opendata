@@ -1,6 +1,7 @@
 import * as moment from 'moment';
 import * as https from 'https';
 import { Geocode } from './models/geocode/geocode.inteface';
+import { DbConfig } from './models/database/db-config';
 
 export class Utils {
 
@@ -11,6 +12,17 @@ export class Utils {
   private static NOMINATIM_URL = 'nominatim.openstreetmap.org';
   private static NOMINATIM_SEARCH = '/search';
   private static NOMINATIM_FORMAT = 'format=json';
+
+  static prepareConfigUpdate(config: DbConfig) {
+
+    const arrVerision = config.version.split('.');
+    arrVerision[2] = (Number(arrVerision[2]) + 1).toString();
+
+    config.datetime = Date.now();
+    config.version = arrVerision.join('.');
+
+    return config;
+  }
 
   static fileNameToDate(value: string) {
     const strDate = value.replace(this.CSV_EXT, this.EMPTY_STR);
@@ -60,14 +72,13 @@ export class Utils {
         });
 
         response.on('end', () => {
-          resolve({payload: JSON.parse(payload)});
+          resolve({ payload: JSON.parse(payload) });
         });
 
         response.on('error', (error) => {
-          reject({error, msg: options.hostname + options.path});
+          reject({ error, msg: options.hostname + options.path });
         });
       });
-      //resolve({payload: [1, 2]});
     });
   }
 }

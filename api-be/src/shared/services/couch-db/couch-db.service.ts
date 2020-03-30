@@ -6,6 +6,7 @@ import { ConfigService } from '../config/config.service';
 export class CouchDbService {
 
   private FIND_COMMAND = '_find';
+  private CONFIG = 'config';
 
   constructor(private readonly http: HttpService,
               private readonly config: ConfigService) {
@@ -16,6 +17,11 @@ export class CouchDbService {
     const url = `http://${this.config.DB_HOSTNAME}:${this.config.DB_PORT}/${this.config.DB_NAME}/${this.FIND_COMMAND}`;
     const data = new CouchDbDto(selector);
     return this.http.post(url, data, { headers: this.buildHeaders() }).toPromise();
+  }
+
+  getConfig() {
+    const url = `http://${this.config.DB_HOSTNAME}:${this.config.DB_PORT}/${this.config.DB_NAME_CONFIG}/${this.CONFIG}`;
+    return this.http.get(url, { headers: this.buildHeaders() }).toPromise();
   }
 
   private buildHeaders() {

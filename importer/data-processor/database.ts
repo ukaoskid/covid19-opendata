@@ -6,17 +6,28 @@ export class Database {
   private DATABASE = {
     hostname: process.env.DB_HOSTNAME,
     port: process.env.DB_PORT,
-    db: process.env.DB_NAME,
+    db: '',
     auth: process.env.DB_AUTH,
   };
-  private BULK_DOCS = `${this.DATABASE.db}/_bulk_docs`;
+
+  constructor(dbName: string) {
+    this.DATABASE.db = dbName;
+  }
+
+  private BULK_DOCS = `_bulk_docs`;
 
   insert(payload: DbDocument): Promise<any> {
 
     const data = JSON.stringify(payload);
-    const options = this.getOptions(this.BULK_DOCS, 'POST', data);
+    const options = this.getOptions(`${this.DATABASE.db}/${this.BULK_DOCS}`, 'POST', data);
 
     return this.httpClient(options, data);
+  }
+
+  getByDocument(document: string): Promise<any> {
+
+    const options = this.getOptions(`${this.DATABASE.db}/${document}`, 'GET');
+    return this.httpClient(options, '');
   }
 
   async prepareDb() {
@@ -79,7 +90,15 @@ export class Database {
       let response;
       const request = http.request(options, (res) => {
         response = res.statusCode;
-        resolve({ response });
+
+        let payload = '';
+        res.on('data', (chunk) => {
+          payload += chunk;
+        });
+
+        res.on('end', () => {
+          resolve({ response, payload: JSON.parse(payload.toString()) });
+        })
       });
 
       request.on('error', (error) => {

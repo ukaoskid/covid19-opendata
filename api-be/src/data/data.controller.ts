@@ -1,12 +1,15 @@
 import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
 import { CouchDbService } from '../shared/services/couch-db/couch-db.service';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('data')
 @Controller('data')
 export class DataController {
 
   constructor(private readonly couchDb: CouchDbService) {
   }
 
+  @ApiOperation({ summary: 'Returns a set of data given the body.' })
   @Post('find')
   public findData(@Res() res, @Body() body: any) {
 
