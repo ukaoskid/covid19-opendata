@@ -7,7 +7,7 @@ import { CsvContent } from './models/csv/csv-content.interface';
 
 export class CsvConverter {
 
-  private CSV_FOLDER = '../../csse_covid_19_data/csse_covid_19_daily_reports';
+  private CSV_FOLDER = '../../data-jhucsse/csse_covid_19_data/csse_covid_19_daily_reports';
 
   public async getFiles(): Promise<CsvFile[]> {
 

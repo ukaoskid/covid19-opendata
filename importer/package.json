@@ -5,14 +5,17 @@
   "main": "importer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "leech": "ts-node data-processor/index.ts"
+    "clean-data": "rimraf ../data-jhucsse",
+    "clone-data": "git clone https://github.com/CSSEGISandData/COVID-19 ../data-jhucsse",
+    "leech": "npm run clean-data && npm run clone-data && ts-node data-processor/index.ts"
   },
   "author": "Simone Di Cicco",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
     "csv-parser": "^2.3.2",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^12.12.31",
