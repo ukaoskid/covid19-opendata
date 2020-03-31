@@ -28,9 +28,6 @@ export class CsvTransformer {
           covidDocument[property] = this.convertPropertyToType(replacedValue, takenRule.columns[property].type)
         });
 
-        // Geocode check.
-        // covidDocument = await this.geocodeCheck(covidDocument);
-
         covidDocuments.push(covidDocument);
       }
     }

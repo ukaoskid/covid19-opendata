@@ -10,7 +10,11 @@ async function bootstrap() {
 
   const options = new DocumentBuilder()
     .setTitle('COVID-19 API Reference')
-    .setDescription('COVID-19 Open data project')
+    .setDescription('COVID-19 Open data project\n\nThe COVID-19 (COronaVIrus Disease 2019) is an infectious disease ' +
+      'caused by severe acute respiratory syndrome coronavirus (SARS-CoV-2). This disease has been first identified ' +
+      'in China (Wuhan, Hubei province) at the end of 2019 and declared as a pandemic on March 11th, 2020.\n\n' +
+      'Data is taken from the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE) GitHub ' +
+      'https://github.com/CSSEGISandData/COVID-19')
     .setVersion('1.0')
     .addTag('config')
     .addTag('data')

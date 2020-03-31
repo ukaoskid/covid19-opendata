@@ -31,7 +31,7 @@ export class AppController {
         res.status(HttpStatus.OK).send({ status: 'ok', payload });
       }
     }).catch((error: any) => {
-      res.status(HttpStatus.OK).send({ status: 'error', payload: error });
+      res.status(HttpStatus.OK).send({ status: 'error' });
     })
   }
 }

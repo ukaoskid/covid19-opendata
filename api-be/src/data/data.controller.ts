@@ -9,7 +9,7 @@ export class DataController {
   constructor(private readonly couchDb: CouchDbService) {
   }
 
-  @ApiOperation({ summary: 'Returns a set of data given the body.' })
+  @ApiOperation({summary: 'Returns a set of data given the body.'})
   @Post('find')
   public findData(@Res() res, @Body() body: any) {
 
@@ -18,11 +18,18 @@ export class DataController {
       if (data.status !== 200) {
         res.status(HttpStatus.OK).send({ status: 'error' });
       } else {
-        res.status(HttpStatus.OK).send({ status: 'ok', payload: data.data.docs});
+
+        res.status(HttpStatus.OK).send(
+          {
+            status: 'ok',
+            payload: {
+              docs: data.data.docs,
+              bookmark: data.data.bookmark
+            }
+          });
       }
     }).catch((error: any) => {
-      console.error('err', error);
-      res.status(HttpStatus.OK).send({ status: 'error', payload: error });
+      res.status(HttpStatus.OK).send({ status: 'error' });
     })
   }
 }
