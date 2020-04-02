@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "cc506a31-a922-464c-b415-788c6480ff23",
+		"name": "COVID-19 Open API",
+		"description": "The COVID-19 (COronaVIrus Disease 2019) is an infectious disease caused by severe acute respiratory syndrome coronavirus (SARS-CoV-2). This disease has been first identified in China (Wuhan, Hubei province) at the end of 2019 and declared as a pandemic on March 11th, 2020.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"selector\": {\n\t\t\"country\": \"Italy\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://backend.default.134.122.85.104.xip.io:30000/data/find",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"default",
+						"134",
+						"122",
+						"85",
+						"104",
+						"xip",
+						"io"
+					],
+					"port": "30000",
+					"path": [
+						"data",
+						"find"
+					]
+				},
+				"description": "Returns a set of data given the body."
+			},
+			"response": []
+		},
+		{
+			"name": "Hello world",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://backend.default.134.122.85.104.xip.io:30000/",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"default",
+						"134",
+						"122",
+						"85",
+						"104",
+						"xip",
+						"io"
+					],
+					"port": "30000",
+					"path": [
+						""
+					]
+				},
+				"description": "Hello world test."
+			},
+			"response": []
+		},
+		{
+			"name": "Config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://backend.default.134.122.85.104.xip.io:30000/config",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"default",
+						"134",
+						"122",
+						"85",
+						"104",
+						"xip",
+						"io"
+					],
+					"port": "30000",
+					"path": [
+						"config"
+					]
+				},
+				"description": "Returns the current database version and last update UNIX date time."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

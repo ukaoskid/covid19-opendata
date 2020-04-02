@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  covidBackend: 'http://134.122.85.104:31302'
+  covidBackend: 'http://localhost:3000'
 };
 
 /*
