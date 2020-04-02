@@ -21,17 +21,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://backend.default.134.122.85.104.xip.io:30000/data/find",
+					"raw": "http://api.covid19-opendata.online:30000/data/find",
 					"protocol": "http",
 					"host": [
-						"backend",
-						"default",
-						"134",
-						"122",
-						"85",
-						"104",
-						"xip",
-						"io"
+						"api",
+						"covid19-opendata",
+						"online"
 					],
 					"port": "30000",
 					"path": [
@@ -49,17 +44,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://backend.default.134.122.85.104.xip.io:30000/",
+					"raw": "http://api.covid19-opendata.online:30000/",
 					"protocol": "http",
 					"host": [
-						"backend",
-						"default",
-						"134",
-						"122",
-						"85",
-						"104",
-						"xip",
-						"io"
+						"api",
+						"covid19-opendata",
+						"online"
 					],
 					"port": "30000",
 					"path": [
@@ -76,17 +66,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://backend.default.134.122.85.104.xip.io:30000/config",
+					"raw": "http://api.covid19-opendata.online:30000/config",
 					"protocol": "http",
 					"host": [
-						"backend",
-						"default",
-						"134",
-						"122",
-						"85",
-						"104",
-						"xip",
-						"io"
+						"api",
+						"covid19-opendata",
+						"online"
 					],
 					"port": "30000",
 					"path": [

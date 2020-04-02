@@ -28,3 +28,32 @@ Their datasources are:
 ## API structure
 
 This is an Open API structure that makes COVID-19 data availability as a service.
+
+- Backend: [http://api.covid19-opendata.online:30000/](http://api.covid19-opendata.online:30000/)
+- Frontend: [http://www.covid19-opendata.online/](http://www.covid19-opendata.online/)
+- Swagger UI: [http://api.covid19-opendata.online:30000/api](http://api.covid19-opendata.online:30000/api)
+
+## Examples
+
+### Hello world
+`curl --location --request GET 'http://api.covid19-opendata.online:30000/config'`
+
+### Config
+`curl --location --request GET 'http://api.covid19-opendata.online:30000/config'`
+
+### Find
+
+```
+curl --location --request POST 'http://api.covid19-opendata.online:30000/data/find' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+ "selector": {
+  "country": "Italy"
+ }
+}'
+```
+
+## Roadmap
+
+- [ ] Aggregation API (a service which will allow to aggregate by a defined schema of properties).
+- [ ] Improve example charts on the frontend.
