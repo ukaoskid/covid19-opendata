@@ -27,7 +27,7 @@ Their datasources are:
 
 ## API structure
 
-This is an Open API structure that makes COVID-19 data availability as a service.
+COVID-19 Open API is a structure that makes COVID-19 data availability as a service.
 
 - Backend: [http://api.covid19-opendata.online:30000/](http://api.covid19-opendata.online:30000/)
 - Frontend: [http://www.covid19-opendata.online/](http://www.covid19-opendata.online/)
