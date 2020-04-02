@@ -55,5 +55,6 @@ curl --location --request POST 'http://api.covid19-opendata.online:30000/data/fi
 
 ## Roadmap
 
+- [ ] Geocoder performance improvements (actually on-going)
 - [ ] Aggregation API (a service which will allow to aggregate by a defined schema of properties).
 - [ ] Improve example charts on the frontend.
