@@ -6,6 +6,7 @@ export interface CovidDocument {
   confirmed: number;
   deaths: number;
   recovered: number;
+  issueDatetime: number;
   latitude?: number;
   longitude?: number;
   combinedKey?: string;

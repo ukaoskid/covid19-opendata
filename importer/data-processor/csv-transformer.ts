@@ -28,6 +28,9 @@ export class CsvTransformer {
           covidDocument[property] = this.convertPropertyToType(replacedValue, takenRule.columns[property].type)
         });
 
+        // Adding the datetime of the daily report.
+        covidDocument.issueDatetime = file.datetime;
+
         covidDocuments.push(covidDocument);
       }
     }
