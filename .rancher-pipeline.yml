@@ -7,5 +7,12 @@ stages:
         cd importer
         npm i
         npm run leech
+    when:
+      branch:
+        include:
+        - master
 timeout: 60
+branch:
+  include:
+  - master
 notification: {}
