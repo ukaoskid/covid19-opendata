@@ -1,0 +1,13 @@
+<div>
+  <h5>Growth factor (>1 = increasing | <1 = decreasing)</h5>
+  <ngx-charts-line-chart *ngIf="data"
+                         [view]="view"
+                         [customColors]="customColors"
+                         [results]="data"
+                         [xAxis]="true"
+                         [yAxis]="true"
+                         [legend]="false"
+                         [showGridLines]="false">
+  </ngx-charts-line-chart>
+</div>
+

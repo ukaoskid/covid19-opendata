@@ -1,15 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import '~normalize.css/normalize.css';
+@import '~bootstrap/dist/css/bootstrap.css';
 
 html, body {
+
   font-family: 'Roboto', sans-serif;
-  min-height: 90vh;
-  min-width: 90vh;
-  height: auto;
-  margin: 0;
-  background-color: #a2998a;
+  height: 100%;
+  background-color: #4b4b4b;
+  color: #dbdfe2;
 }
 
-.pf-10 {
-  padding-left: 10px;
+.confirmed {
+  font-weight: bold;
+  color: #ffce3b;
+}
+
+.deaths {
+  font-weight: bold;
+  color: #ff4343;
+}
+
+.recovered {
+  font-weight: bold;
+  color: #41be37;
+}
+
+.ngx-charts text {
+  fill: #dbdfe2 !important;
+}
+
+.dd-bg-color {
+  background-color: #dbdfe2
+}
+
+.full-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  covidBackend: 'http://localhost:3000'
+  covidBackend: 'http://api.covid19-opendata.online:30000'
 };
 
 /*

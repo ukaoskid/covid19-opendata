@@ -1,2 +1,34 @@
-<app-chart></app-chart>
+<div class="container-fluid">
+
+  <p class="mt-2 mr-2" *ngIf="isError">
+    <ngb-alert [dismissible]="true">
+      <strong>Oops!</strong> something went wrong, try to change the filter or reload the page.
+    </ngb-alert>
+  </p>
+
+  <h1>COVID-19 Last 30 days trend</h1>
+  <h5>Last update: {{ lastUpdate }}</h5>
+
+  <div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary dd-bg-color" id="nationsDropdown" ngbDropdownToggle>{{ nation }}</button>
+    <div ngbDropdownMenu aria-labelledby="nationsDropdown">
+      <button ngbDropdownItem (click)="changeNation('Italy')">Italy</button>
+      <button ngbDropdownItem (click)="changeNation('US')">USA</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" #totalizersContainer>
+      <app-totalizers [data]="totalizers" [view]="[totalizersContainer.clientWidth, 150]"></app-totalizers>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6" #graphContainer>
+      <app-trend-hist [data]="trendHistData" [view]="[(graphContainer.clientWidth - 30) || 0, 400]"></app-trend-hist>
+    </div>
+    <div class="col-6">
+      <app-growt-factor [data]="growthFactor" [view]="[(graphContainer.clientWidth - 30) || 0, 400]"></app-growt-factor>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading"></ngx-loading>
 <router-outlet></router-outlet>

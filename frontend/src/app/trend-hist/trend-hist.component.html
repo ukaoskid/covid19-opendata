@@ -1,0 +1,12 @@
+<div>
+  <h5>Daily trend</h5>
+  <ngx-charts-bar-vertical-stacked *ngIf="data"
+                                   [view]="view"
+                                   [customColors]="customColors"
+                                   [results]="data"
+                                   [xAxis]="true"
+                                   [yAxis]="true"
+                                   [legend]="false">
+  </ngx-charts-bar-vertical-stacked>
+</div>
+
