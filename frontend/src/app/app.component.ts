@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     const find: FindCovid = {
       selector: {
         country: this.nation,
-        lastUpdate: {$gte: Date.now() - (30 * 24 * 60 * 60 * 1000)}
+        lastUpdate: { $gte: Date.now() - (30 * 24 * 60 * 60 * 1000) }
       }
     };
 
