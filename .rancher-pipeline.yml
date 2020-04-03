@@ -1,0 +1,11 @@
+stages:
+- name: Run importer
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: |-
+        cd importer
+        npm i
+        npm run leech
+timeout: 60
+notification: {}
