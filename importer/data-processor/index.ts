@@ -31,7 +31,7 @@ converter.getFiles().then(async (files) => {
     // Database storage.
     try {
       const dbResponse = await database.insert({ docs: document });
-      console.log(`${file.filename}: SUCCESS ${JSON.stringify(dbResponse.response)} at ${new Date().toString()}`);
+      console.log(`${file.filename}: SUCCESS ${JSON.stringify(dbResponse.response)} | ${document.length} DOCS at ${new Date().toString()}`);
     } catch (error) {
       console.error(`${file.filename}: ERROR ${JSON.stringify(error)} at ${new Date().toString()}`);
     }

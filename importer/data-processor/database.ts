@@ -1,5 +1,6 @@
 import * as http from 'http';
 import { DbDocument } from './models/database/db-document.interface';
+import { Utils } from './utils';
 
 export class Database {
 
@@ -35,13 +36,15 @@ export class Database {
     try {
 
       const deletion: any = await this.deleteDb();
-      if (deletion.response !== 200) {
+      if (deletion.response !== 200 && deletion.response !== 404) {
         return { error: 'Error during DB deletion.', statusCode: deletion.response }
       }
 
+      await Utils.wait(2000);
+
       const creation: any = await this.createDb();
       if (creation.response !== 201) {
-        return { error: 'Error during DB creation.', statusCode: deletion.creation }
+        return { error: 'Error during DB creation.', statusCode: creation.response }
       }
 
       return { ok: true }
@@ -89,6 +92,7 @@ export class Database {
 
       let response;
       const request = http.request(options, (res) => {
+
         response = res.statusCode;
 
         let payload = '';

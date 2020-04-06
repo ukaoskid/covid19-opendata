@@ -1,6 +1,10 @@
 <div>
-  <h5>Growth factor (>1 = increasing | <1 = decreasing)</h5>
+  <h5>Growth factor</h5>
   <ngx-charts-line-chart *ngIf="data"
+                         [curve]="curve"
+                         [referenceLines]="[{ name: 'Growth line', value: 1 }]"
+                         [showRefLabels]="true"
+                         [showRefLines]="true"
                          [view]="view"
                          [customColors]="customColors"
                          [results]="data"

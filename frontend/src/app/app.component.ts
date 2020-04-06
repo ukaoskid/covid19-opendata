@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     const find: FindCovid = {
       selector: {
         country: this.nation,
-        lastUpdate: { $gte: Date.now() - (30 * 24 * 60 * 60 * 1000) }
+        issueDatetime: { $gte: Date.now() - (30 * 24 * 60 * 60 * 1000) }
       }
     };
 
@@ -56,6 +56,8 @@ export class AppComponent implements OnInit {
       }
 
       const payload = data.payload.docs;
+
+      console.log(payload);
 
       // Grouping per issue datetime.
       const issueDateMap = new Map<number, { confirmed: number, deaths: number, recovered: number }>();
@@ -109,6 +111,7 @@ export class AppComponent implements OnInit {
         return currentValue;
       });
 
+      console.log(groupedData);
       this.computeTotals(groupedData);
       this.computeTrendHistogram(groupedData);
       this.computeGrowthFactor(groupedData);
@@ -150,9 +153,9 @@ export class AppComponent implements OnInit {
         tempTrendHist.push({
           name: moment(record.datetime).format('YYYY-MM-DD'),
           series: [
-            {name: 'Confirmed', value: record.deltas.deltaConfirmed},
-            {name: 'Deaths', value: record.deltas.deltaDeaths},
-            {name: 'Recovered', value: record.deltas.deltaRecovered},
+            { name: 'Confirmed', value: record.deltas.deltaConfirmed },
+            { name: 'Deaths', value: record.deltas.deltaDeaths },
+            { name: 'Recovered', value: record.deltas.deltaRecovered },
           ]
         });
       }
@@ -164,9 +167,9 @@ export class AppComponent implements OnInit {
   computeGrowthFactor(data: any[]) {
 
     const tempGrowthFactor = [
-      {name: 'Confirmed', series: []},
-      {name: 'Deaths', series: []},
-      {name: 'Recovered', series: []},
+      { name: 'Confirmed', series: [] },
+      { name: 'Deaths', series: [] },
+      { name: 'Recovered', series: [] },
     ];
 
     data.forEach((record: any) => {

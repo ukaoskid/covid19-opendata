@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { curveLinear } from 'd3-shape';
+import { Component, Input, OnInit } from '@angular/core';
+import { curveBasis } from 'd3-shape';
 
 @Component({
   selector: 'app-growt-factor',
@@ -14,6 +14,7 @@ export class GrowthFactorComponent implements OnInit {
   @Input()
   view: any[];
 
+  curve: any = curveBasis;
   customColors = [
     { name: 'Confirmed', value: '#ffce3b' },
     { name: 'Deaths', value: '#ff4343' },

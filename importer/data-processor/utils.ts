@@ -13,6 +13,13 @@ export class Utils {
   private static NOMINATIM_SEARCH = '/search';
   private static NOMINATIM_FORMAT = 'format=json';
 
+  static wait(time: number) {
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => { resolve(); }, time);
+    });
+  }
+
   static prepareConfigUpdate(config: DbConfig) {
 
     const arrVerision = config.version.split('.');

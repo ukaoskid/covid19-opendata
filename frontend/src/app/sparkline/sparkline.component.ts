@@ -1,7 +1,13 @@
 import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { scaleLinear, scaleTime, scalePoint } from 'd3-scale';
 import { curveLinear } from 'd3-shape';
-import { BaseChartComponent, ViewDimensions, ColorHelper, calculateViewDimensions, getUniqueXDomainValues } from '@swimlane/ngx-charts';
+import {
+  BaseChartComponent,
+  ViewDimensions,
+  ColorHelper,
+  calculateViewDimensions,
+  getUniqueXDomainValues
+} from '@swimlane/ngx-charts';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -31,11 +37,13 @@ import { BaseChartComponent, ViewDimensions, ColorHelper, calculateViewDimension
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SparklineComponent extends BaseChartComponent {
+
   @Input() autoScale = false;
   @Input() curve: any = curveLinear;
   @Input() schemeType: string = 'linear';
   @Input() valueDomain: number[];
   @Input() animations: boolean = true;
+  @Input() data: any;
 
   dims: ViewDimensions;
   xSet: any;

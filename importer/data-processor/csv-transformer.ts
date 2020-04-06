@@ -5,7 +5,6 @@ import { CovidDocument } from './models/covid/covid-document.interface';
 import { TYPES } from './models/types';
 import { Utils } from './utils';
 import { ReplaceRule } from './models/rules/replace-rule.interface';
-import { Geocode } from './models/geocode/geocode.inteface';
 
 export class CsvTransformer {
 
@@ -36,36 +35,6 @@ export class CsvTransformer {
     }
 
     return covidDocuments;
-  }
-
-  private async geocodeCheck(value: CovidDocument) {
-
-    value.latitude = 0;
-    value.longitude = 0;
-
-    if (!value.latitude || !value.longitude) {
-
-      const geocode: Geocode = {
-        city: value.admin2 ? value.admin2 : undefined,
-        provinceState: value.provinceState,
-        country: value.country,
-        zipCode: value.fips ? value.fips : undefined,
-      };
-
-      try {
-
-        const payload = await Utils.geocode(geocode);
-
-        if (payload && payload.length === 1) {
-          value.latitude = payload[0].lat;
-          value.longitude = payload[0].lon;
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    return value;
   }
 
   private replaceValue(value: string, replaceRules: ReplaceRule[]) {
